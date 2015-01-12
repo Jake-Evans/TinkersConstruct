@@ -11,22 +11,17 @@ public class FancyEntityItem extends EntityItem
     public FancyEntityItem(World par1World, double par2, double par4, double par6)
     {
         super(par1World, par2, par4, par6);
-        this.isImmuneToFire = true;
-        this.lifespan = 72000;
     }
 
     public FancyEntityItem(World par1World, double par2, double par4, double par6, ItemStack par8ItemStack)
     {
         this(par1World, par2, par4, par6);
         this.setEntityItemStack(par8ItemStack);
-        this.lifespan = (par8ItemStack.getItem() == null ? 6000 : par8ItemStack.getItem().getEntityLifespan(par8ItemStack, par1World));
     }
 
     public FancyEntityItem(World par1World)
     {
         super(par1World);
-        this.isImmuneToFire = true;
-        this.lifespan = 72000;
     }
 
     public FancyEntityItem(World world, Entity original, ItemStack stack)
@@ -39,10 +34,4 @@ public class FancyEntityItem extends EntityItem
         this.setEntityItemStack(stack);
     }
 
-    public boolean attackEntityFrom (DamageSource par1DamageSource, float par2)
-    {
-        if (par1DamageSource.getDamageType().equals("outOfWorld"))
-            return true;
-        return false;
-    }
 }
